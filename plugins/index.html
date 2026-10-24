@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://maciwatch.zpad.app/plugins/" />
   <meta property="og:image" content="https://maciwatch.zpad.app/assets/app-icon.png" />
   <meta name="twitter:card" content="summary" />
-  <script type="module" crossorigin src="/assets/plugins-BK-I0Ymp.js"></script>
+  <script type="module" crossorigin src="/assets/plugins-CGZaQo_w.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/main-DgMcCUZZ.js">
   <link rel="stylesheet" crossorigin href="/assets/main-CYS36cmx.css">
   <link rel="stylesheet" crossorigin href="/assets/plugins-DxWReZ63.css">
@@ -87,7 +87,7 @@
         <article>
           <span class="step-no">01</span>
           <h3>Create the manifest</h3>
-          <p>Copy the AI prompt below into any AI and add one line describing what you need; or configure and export <code>&lt;id&gt;.json</code> with the online builder. You can also download an example plugin and tweak its fields.</p>
+          <p>Copy the AI prompt below into any AI and add one line describing what you need; or configure and export <code>&lt;id&gt;.json</code> with the online builder. You can also download a Manifest V2 example plugin — including its explicit permission declarations — and tweak its fields.</p>
         </article>
         <article>
           <span class="step-no">02</span>
@@ -128,7 +128,7 @@
       <div class="shell section-head">
         <p class="eyebrow">Plugin Builder</p>
         <h2 id="generator-title">Online plugin builder</h2>
-        <p>Configure on the left and watch the manifest JSON preview update live on the right. Copy or download when done, then import into MaciWatch.</p>
+        <p>Configure on the left and watch the Manifest V2 JSON preview update live on the right. Permissions are derived from your actions and remote images; copy or download when done, then import into MaciWatch.</p>
       </div>
       <div class="shell generator-layout">
         <form class="generator-form" id="generator-form" aria-label="Plugin manifest configuration" novalidate>
@@ -181,7 +181,7 @@
               </label>
               <label class="gen-field" data-bg-url><span>Image URL</span>
                 <input data-gen="bg-url" type="url" placeholder="https://example.com/bg.jpg" spellcheck="false" />
-                <small>Downloaded and cached locally; http/https only</small>
+                <small>HTTPS only; generates a scoped <code>remoteImage</code> permission</small>
               </label>
             </div>
             <div class="gen-grid">
@@ -267,6 +267,7 @@
             <span>Load example:</span>
             <button type="button" class="chip" data-load-example="demo.exchange">Exchange Rates</button>
             <button type="button" class="chip" data-load-example="demo.hitokoto">Hitokoto</button>
+            <button type="button" class="chip" data-load-example="demo.music">Now Playing</button>
             <button type="button" class="chip chip-plain" data-clear-generator>Clear all</button>
           </div>
         </aside>
@@ -313,6 +314,7 @@
                   <tr><th scope="row"><code>state</code></th><td>Object</td><td>No</td><td>Initial state key/values (strings / numbers / booleans); edits persist on this Mac</td></tr>
                   <tr><th scope="row"><code>refreshInterval</code></th><td>Double</td><td>No</td><td>Auto-refresh in seconds, effective at ≥ 5; no timer by default</td></tr>
                   <tr><th scope="row"><code>loadOnStart</code></th><td>Bool</td><td>No</td><td>Runs the default refresh action when the plugin opens · defaults to <code>true</code>; set <code>false</code> for manual only</td></tr>
+                  <tr><th scope="row"><code>permissions</code></th><td>[Object]</td><td>Manifest V2</td><td>Explicit capability grants. Each item is <code>{ "capability", "scope", "required" }</code>; capabilities are <code>networkRequest</code>, <code>clipboardWrite</code>, <code>openURL</code>, <code>mediaControl</code>, <code>nativePage</code>, <code>remoteImage</code>, and <code>autoRefresh</code>. Host scope accepts an exact domain or a parent domain.</td></tr>
                   <tr><th scope="row"><code>pages</code></th><td>Object</td><td>Yes</td><td>Page table keyed by page id; <code>main</code> is the entry page, the rest are <code>navigate</code> sub-pages</td></tr>
                   <tr><th scope="row"><code>actions</code></th><td>Object</td><td>Yes</td><td>Action table keyed by action id, referenced by buttons / trailing controls / auto refresh</td></tr>
                 </tbody>
@@ -461,13 +463,13 @@
               <table>
                 <thead><tr><th scope="col">type</th><th scope="col">Fields</th><th scope="col">Behavior</th></tr></thead>
                 <tbody>
-                  <tr><th scope="row"><code>http</code></th><td><code>method</code> · GET, <code>url</code>, <code>headers</code>{}, <code>body</code>, <code>extract</code>{}</td><td>Sends a request (15 s timeout); <code>url</code> / <code>headers</code> / <code>body</code> support <code>{{key}}</code> templates; <code>extract</code> writes the response into state by JSONPath</td></tr>
+                  <tr><th scope="row"><code>http</code></th><td><code>method</code> · GET, <code>url</code>, <code>headers</code>{}, <code>body</code>, <code>extract</code>{}</td><td>HTTPS request (15 s timeout) gated by scoped <code>networkRequest</code>; <code>url</code> / <code>headers</code> / <code>body</code> support <code>{{key}}</code> templates, and <code>extract</code> writes the response into state by JSONPath</td></tr>
                   <tr><th scope="row"><code>set</code></th><td><code>values</code>{}</td><td>Writes several state key/values in place</td></tr>
-                  <tr><th scope="row"><code>copy</code></th><td><code>text</code></td><td>Renders the template, then copies to the clipboard</td></tr>
-                  <tr><th scope="row"><code>open-url</code></th><td><code>url</code></td><td>Renders the template, then opens in the default browser · http/https only</td></tr>
+                  <tr><th scope="row"><code>copy</code></th><td><code>text</code></td><td>Renders the template, then copies to the clipboard; requires <code>clipboardWrite</code></td></tr>
+                  <tr><th scope="row"><code>open-url</code></th><td><code>url</code></td><td>Renders the template, then opens the HTTPS URL in the default browser; requires scoped <code>openURL</code></td></tr>
                   <tr><th scope="row"><code>navigate</code></th><td><code>page</code></td><td>Navigates to another page in <code>pages</code>; the header gains a back arrow</td></tr>
-                  <tr><th scope="row"><code>media</code></th><td><code>command</code></td><td>Controls the built-in player: <code>toggle</code> (play / pause) · <code>next</code> · <code>prev</code>; works with any loaded music source queue (local / NetEase / Kugou…)</td></tr>
-                  <tr><th scope="row"><code>app</code></th><td><code>provider</code></td><td>Opens a native music source page: <code>local</code> · <code>netease</code> · <code>qq</code> · <code>kugou</code> (the last three are community-edition capabilities; the App Store build gracefully degrades to a notice)</td></tr>
+                  <tr><th scope="row"><code>media</code></th><td><code>command</code></td><td>Controls the built-in player: <code>toggle</code> (play / pause) · <code>next</code> · <code>prev</code>; works with any loaded music source queue and requires <code>mediaControl</code></td></tr>
+                  <tr><th scope="row"><code>app</code></th><td><code>provider</code></td><td>Opens a native music source page: <code>local</code> · <code>netease</code> · <code>qq</code> · <code>kugou</code>; requires <code>nativePage</code>. The last three are community-edition capabilities; the App Store build gracefully degrades to a notice</td></tr>
                 </tbody>
               </table>
             </div>
@@ -492,7 +494,7 @@
               <li><strong>Location</strong>: <code>~/Library/Application Support/MaciWatch/plugins/&lt;id&gt;.json</code>; you can also drop files in manually — Plugin Manager scans the folder automatically.</li>
               <li><strong>Importing</strong>: Plugin Manager → Import at the top right → pick a JSON file or paste the manifest text; the filename doesn't matter — the manifest's own <code>id</code> decides what lands on disk.</li>
               <li><strong>Overwrite &amp; uninstall</strong>: re-importing the same id overwrites and reinstalls; Plugin Manager supports deleting and hiding from the Honeycomb (visibility is just a hidden list).</li>
-              <li><strong>Built-in examples</strong>: the Exchange Rates and Hitokoto example plugins are seeded on first launch — modify or delete them freely.</li>
+              <li><strong>Built-in examples</strong>: Exchange Rates, Hitokoto, and the community-build Now Playing entry are seeded on first launch — modify or delete them freely. Every example manifest declares its permissions explicitly.</li>
               <li><strong>Community shares</strong>: the community examples below import directly; share your plugin JSON as a code snippet — the best ones get collected here.</li>
             </ul>
           </section>
@@ -501,7 +503,9 @@
             <h2>9. Security &amp; validation</h2>
             <ul>
               <li><strong>id whitelist</strong>: must start with a letter/digit plus <code>A-Z a-z 0-9 . _ -</code>, ≤ 100 chars; path traversal (e.g. <code>../evil</code>) and symbol-only ids are rejected.</li>
-              <li><strong>Web protocols only</strong>: HTTP and <code>open-url</code> allow just <code>http</code> / <code>https</code>; local schemes like <code>file://</code> are always rejected.</li>
+              <li><strong>Web protocols only</strong>: Manifest V2 network requests, remote images, and <code>open-url</code> destinations require <code>https://</code>; local schemes such as <code>file://</code> are always rejected.</li>
+              <li><strong>Explicit permissions</strong>: import shows every declared capability before anything runs. Network, remote-image, and open-URL scopes restrict requests to the exact host or a declared parent domain; authorization can be revoked at any time and permission changes invalidate old authorization.</li>
+              <li><strong>Auto-refresh gate</strong>: loading on open or refreshing on a timer requires both <code>networkRequest</code> and <code>autoRefresh</code>.</li>
               <li><strong>Icon validation</strong>: every SF Symbol reference in the manifest (header, trailing, body, bottom buttons) must exist in the current system symbol set, or the import is rejected.</li>
               <li><strong>Data boundary</strong>: state stays on this Mac and is never uploaded; requests time out after 15 s, and a failure never affects other plugins.</li>
             </ul>
@@ -514,7 +518,7 @@
       <div class="shell section-head">
         <p class="eyebrow">Examples</p>
         <h2 id="examples-title">Example plugins</h2>
-        <p>Complete manifests — built-ins plus community shares. Import them as-is, or hand them to an AI to remix into what you want.</p>
+        <p>Complete Manifest V2 files — built-ins plus community shares. Each one declares the permissions it needs; import as-is, or hand it to an AI to remix.</p>
       </div>
       <div class="shell">
         <div class="examples-group">
@@ -580,6 +584,29 @@
             <div class="example-actions">
               <button class="button download" type="button" data-download-example="demo.hitokoto"><svg aria-hidden="true"><use href="#i-download" /></svg>Download JSON</button>
               <button class="button ghost" type="button" data-load-example="demo.hitokoto">Load in builder</button>
+            </div>
+            <details class="example-json"><summary>View manifest</summary><pre class="json-view"></pre></details>
+          </article>
+          <article class="example-card">
+            <div class="wm-device wm-bg-music wm-fit-center wm-dense" aria-hidden="true">
+              <div class="wm-screen">
+                <header class="wm-header">
+                  <div class="wm-header-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.2V6.5l9-2v11.2a2.8 2.8 0 1 1-1.8-2.6V7.3L10.8 8.8v9.4a2.8 2.8 0 1 1-1.8-2.6z"/></svg>
+                    <span>Now Playing</span>
+                  </div>
+                </header>
+                <main class="wm-body">
+                  <p class="wm-hero wm-grad-text">Native Music</p>
+                  <p class="wm-caption">One plugin entry · zero plugin UI logic</p>
+                </main>
+                <footer class="wm-footer"><span class="wm-btn primary">Open Music</span></footer>
+              </div>
+            </div>
+            <h3>Now Playing · demo.music <span class="example-badge">Built-in</span></h3>
+            <p>The smallest <code>nativePage</code> example: it declares only <code>nativePage: music</code>, so the built-in Music app renders the full native experience. This seed is community-build only and requests no network permission.</p>
+            <div class="example-actions">
+              <button class="button download" type="button" data-download-example="demo.music"><svg aria-hidden="true"><use href="#i-download" /></svg>Download JSON</button>
             </div>
             <details class="example-json"><summary>View manifest</summary><pre class="json-view"></pre></details>
           </article>
@@ -705,11 +732,11 @@
                 </footer>
               </div>
             </div>
-            <h3>Netease Music Entry · demo.music <span class="example-badge community">Community</span></h3>
+            <h3>Netease Music Suite · community.music <span class="example-badge community">Community</span></h3>
             <p>A conventional music plugin manifest: live np.* playback data, media actions for prev/next, quality settings, and an about page; the main page carries the <code>native: "music"</code> marker so the built-in Music app renders the body natively (community build required).</p>
             <div class="example-actions">
-              <button class="button download" type="button" data-download-example="demo.music"><svg aria-hidden="true"><use href="#i-download" /></svg>Download JSON</button>
-              <button class="button ghost" type="button" data-copy-example="demo.music"><svg aria-hidden="true"><use href="#i-copy" /></svg>Copy JSON</button>
+              <button class="button download" type="button" data-download-example="community.music"><svg aria-hidden="true"><use href="#i-download" /></svg>Download JSON</button>
+              <button class="button ghost" type="button" data-copy-example="community.music"><svg aria-hidden="true"><use href="#i-copy" /></svg>Copy JSON</button>
             </div>
             <details class="example-json"><summary>View manifest</summary><pre class="json-view"></pre></details>
           </article>
