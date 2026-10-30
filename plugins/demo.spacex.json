@@ -55,12 +55,12 @@
       "body": [
         {
           "type": "text",
-          "bind": "mission",
+          "bind": "rocket",
           "style": "hero"
         },
         {
           "type": "text",
-          "value": "🚀 {{rocket}}",
+          "value": "🛰 {{mission}}",
           "style": "normal"
         },
         {
