@@ -1,0 +1,42 @@
+{
+  "id": "demo.exchange",
+  "name": "汇率",
+  "version": 1,
+  "icon": "dollarsign.circle.fill",
+  "colors": ["#3DA35D", "#1F6E43"],
+  "permissions": [
+    { "capability": "networkRequest", "scope": "open.er-api.com", "required": true },
+    { "capability": "autoRefresh", "required": true }
+  ],
+  "state": { "base": "USD", "rate": "—", "updated": "点击刷新" },
+  "pages": {
+    "main": {
+      "header": {
+        "title": "汇率",
+        "icon": "dollarsign.circle.fill",
+        "trailing": [ { "type": "button", "icon": "arrow.clockwise", "action": "refresh" } ]
+      },
+      "body": [
+        { "type": "metric", "bind": "rate", "unit": "CNY", "style": "hero" },
+        { "type": "text", "bind": "updated", "style": "caption" },
+        { "type": "text", "value": "1 {{base}} → CNY", "style": "caption" }
+      ],
+      "settings": [
+        { "type": "picker", "label": "基准货币", "bind": "base",
+          "options": ["USD", "EUR", "JPY", "GBP", "HKD"] }
+      ],
+      "bottom": [ { "type": "button", "label": "刷新", "style": "primary", "action": "refresh" } ]
+    }
+  },
+  "actions": {
+    "refresh": {
+      "type": "http",
+      "method": "GET",
+      "url": "https://open.er-api.com/v6/latest/{{base}}",
+      "extract": {
+        "rate": "$.rates.CNY",
+        "updated": "$.time_last_update_utc"
+      }
+    }
+  }
+}

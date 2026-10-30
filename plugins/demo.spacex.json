@@ -1,0 +1,119 @@
+{
+  "id": "demo.spacex",
+  "name": "下次发射",
+  "version": 1,
+  "icon": "paperplane.fill",
+  "colors": [
+    "#4F6DF5",
+    "#1B2F8A"
+  ],
+  "background": {
+    "type": "gradient",
+    "colors": [
+      "#0B1330",
+      "#050814"
+    ]
+  },
+  "refreshInterval": 900,
+  "permissions": [
+    {
+      "capability": "networkRequest",
+      "scope": "lldev.thespacedevs.com",
+      "required": true
+    },
+    {
+      "capability": "autoRefresh",
+      "required": true
+    },
+    {
+      "capability": "openURL",
+      "scope": "thespacedevs.com",
+      "required": false
+    }
+  ],
+  "state": {
+    "mission": "加载中…",
+    "rocket": "",
+    "status": "",
+    "net": "",
+    "pad": ""
+  },
+  "pages": {
+    "main": {
+      "layout": "hero",
+      "header": {
+        "title": "下次发射",
+        "icon": "paperplane.fill",
+        "trailing": [
+          {
+            "type": "button",
+            "icon": "arrow.clockwise",
+            "action": "refresh"
+          }
+        ]
+      },
+      "body": [
+        {
+          "type": "text",
+          "bind": "mission",
+          "style": "hero"
+        },
+        {
+          "type": "text",
+          "value": "🚀 {{rocket}}",
+          "style": "normal"
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "text",
+          "value": "状态  {{status}}",
+          "style": "caption"
+        },
+        {
+          "type": "text",
+          "value": "时间  {{net}}",
+          "style": "caption"
+        },
+        {
+          "type": "text",
+          "value": "地点  {{pad}}",
+          "style": "caption"
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "刷新",
+          "style": "primary",
+          "action": "refresh"
+        },
+        {
+          "type": "button",
+          "label": "官网",
+          "style": "plain",
+          "action": "open"
+        }
+      ]
+    }
+  },
+  "actions": {
+    "refresh": {
+      "type": "http",
+      "method": "GET",
+      "url": "https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=1&mode=list",
+      "extract": {
+        "mission": "$.results[0].mission.name",
+        "rocket": "$.results[0].name",
+        "status": "$.results[0].status.abbrev",
+        "net": "$.results[0].net",
+        "pad": "$.results[0].pad"
+      }
+    },
+    "open": {
+      "type": "open-url",
+      "url": "https://thespacedevs.com"
+    }
+  }
+}

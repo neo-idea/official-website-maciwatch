@@ -1,0 +1,126 @@
+{
+  "id": "demo.youtube",
+  "name": "YouTube 看板",
+  "version": 1,
+  "icon": "play.rectangle.fill",
+  "colors": [
+    "#FF4E45",
+    "#8F140E"
+  ],
+  "background": {
+    "type": "gradient",
+    "colors": [
+      "#1C0A0A",
+      "#0A0303"
+    ]
+  },
+  "permissions": [
+    {
+      "capability": "networkRequest",
+      "scope": "googleapis.com",
+      "required": true
+    },
+    {
+      "capability": "openURL",
+      "scope": "youtube.com",
+      "required": false
+    }
+  ],
+  "state": {
+    "channel": "UCXuqSBlHAE6Xw-yeJA0Tunw",
+    "title": "需在 manifest 填 API key",
+    "subs": "—",
+    "views": "—",
+    "videos": "—"
+  },
+  "pages": {
+    "main": {
+      "layout": "pinned",
+      "header": {
+        "title": "YouTube 看板",
+        "icon": "play.rectangle.fill",
+        "trailing": [
+          {
+            "type": "button",
+            "icon": "arrow.clockwise",
+            "action": "refresh"
+          }
+        ]
+      },
+      "body": [
+        {
+          "type": "text",
+          "bind": "title",
+          "style": "hero"
+        },
+        {
+          "type": "text",
+          "value": "订阅  {{subs}}",
+          "style": "normal"
+        },
+        {
+          "type": "text",
+          "value": "总播放  {{views}}",
+          "style": "normal"
+        },
+        {
+          "type": "text",
+          "value": "视频数  {{videos}}",
+          "style": "normal"
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "text",
+          "value": "设置里换频道;API key 在 Google Cloud 申请(YouTube Data API v3)",
+          "style": "caption"
+        }
+      ],
+      "settings": [
+        {
+          "type": "picker",
+          "label": "频道",
+          "bind": "channel",
+          "options": [
+            "UCXuqSBlHAE6Xw-yeJA0Tunw",
+            "UC0intLFzLaudFG-xAvUEO9g",
+            "UC_0u6HgJ5R1B5m0dW9qZfQ",
+            "UCq-Fj5jknLsUf-MWSy4_brA"
+          ]
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "刷新",
+          "style": "primary",
+          "action": "refresh"
+        },
+        {
+          "type": "button",
+          "label": "打开频道",
+          "style": "plain",
+          "action": "open"
+        }
+      ]
+    }
+  },
+  "actions": {
+    "refresh": {
+      "type": "http",
+      "method": "GET",
+      "url": "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id={{channel}}&key=YOUR_API_KEY",
+      "extract": {
+        "title": "$.items[0].snippet.title",
+        "subs": "$.items[0].statistics.subscriberCount",
+        "views": "$.items[0].statistics.viewCount",
+        "videos": "$.items[0].statistics.videoCount"
+      }
+    },
+    "open": {
+      "type": "open-url",
+      "url": "https://www.youtube.com/channel/{{channel}}"
+    }
+  }
+}

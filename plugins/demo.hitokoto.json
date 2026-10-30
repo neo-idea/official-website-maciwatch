@@ -1,0 +1,36 @@
+{
+  "id": "demo.hitokoto",
+  "name": "一言",
+  "version": 1,
+  "icon": "quote.bubble.fill",
+  "colors": ["#5B8DEF", "#2D5DD6"],
+  "background": { "type": "gradient", "colors": ["#1B2A4A", "#0C1424"] },
+  "permissions": [
+    { "capability": "networkRequest", "scope": "v1.hitokoto.cn", "required": true },
+    { "capability": "autoRefresh", "required": true }
+  ],
+  "state": {},
+  "pages": {
+    "main": {
+      "fit": true,
+      "header": {
+        "title": "一言",
+        "trailing": [ { "type": "button", "icon": "arrow.clockwise", "action": "refresh" } ]
+      },
+      "body": [
+        { "type": "icon", "value": "quote.opening" },
+        { "type": "text", "bind": "text", "style": "hero" },
+        { "type": "text", "bind": "from", "style": "caption" }
+      ],
+      "bottom": [ { "type": "button", "label": "换一句", "style": "primary", "action": "refresh" } ]
+    }
+  },
+  "actions": {
+    "refresh": {
+      "type": "http",
+      "method": "GET",
+      "url": "https://v1.hitokoto.cn/",
+      "extract": { "text": "$.hitokoto", "from": "$.from" }
+    }
+  }
+}

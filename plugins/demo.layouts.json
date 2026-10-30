@@ -1,0 +1,220 @@
+{
+  "id": "demo.layouts",
+  "name": "布局演示",
+  "version": 1,
+  "icon": "square.grid.2x2",
+  "colors": [
+    "#58A6FF",
+    "#BC8CFF"
+  ],
+  "permissions": [
+    {
+      "capability": "openURL",
+      "scope": "github.com",
+      "required": false
+    }
+  ],
+  "pages": {
+    "main": {
+      "header": {
+        "title": "布局演示"
+      },
+      "body": [
+        {
+          "type": "text",
+          "value": "五种页面布局模板,点下方按钮逐个体验",
+          "style": "normal"
+        },
+        {
+          "type": "icon",
+          "value": "square.grid.2x2"
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "滚动流",
+          "style": "primary",
+          "action": "go-hero"
+        },
+        {
+          "type": "button",
+          "label": "首屏占满",
+          "style": "plain",
+          "action": "go-heroFull"
+        },
+        {
+          "type": "button",
+          "label": "一屏",
+          "style": "plain",
+          "action": "go-fitpage"
+        },
+        {
+          "type": "button",
+          "label": "列表",
+          "style": "plain",
+          "action": "go-listpage"
+        },
+        {
+          "type": "button",
+          "label": "钉底",
+          "style": "plain",
+          "action": "go-pinnedpage"
+        }
+      ]
+    },
+    "hero": {
+      "layout": "hero",
+      "header": {
+        "title": "hero 滚动流"
+      },
+      "body": [
+        {
+          "type": "text",
+          "value": "类型4:头/主区/设置/底钮整页滚动,不溢出时主区居中",
+          "style": "caption"
+        }
+      ],
+      "settings": [
+        {
+          "type": "picker",
+          "label": "示例设置A",
+          "bind": "pa",
+          "options": [
+            "1",
+            "2"
+          ]
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "返回",
+          "style": "primary",
+          "action": "go-main"
+        }
+      ]
+    },
+    "heroFull": {
+      "layout": "heroFull",
+      "header": {
+        "title": "heroFull 首屏占满"
+      },
+      "body": [
+        {
+          "type": "text",
+          "value": "类型4:首屏恒占满,下滑看第二屏设置",
+          "style": "hero"
+        }
+      ],
+      "settings": [
+        {
+          "type": "picker",
+          "label": "第二屏设置B",
+          "bind": "pb",
+          "options": [
+            "1",
+            "2"
+          ]
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "返回",
+          "style": "primary",
+          "action": "go-main"
+        }
+      ]
+    },
+    "fitpage": {
+      "layout": "fit",
+      "header": {
+        "title": "fit 一屏完整"
+      },
+      "body": [
+        {
+          "type": "text",
+          "value": "类型5:中区自适应不滚动",
+          "style": "hero"
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "返回",
+          "style": "primary",
+          "action": "go-main"
+        }
+      ]
+    },
+    "listpage": {
+      "layout": "list",
+      "header": {
+        "title": "list 滚动列表"
+      },
+      "body": [
+        {
+          "type": "text",
+          "value": "类型3:上固定+中滚动,底钮按钮附在内容流末尾。1 2 3 4 5 6 7 8 9 滚动看折叠箭头,一键到底。",
+          "style": "normal"
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "返回主页",
+          "style": "primary",
+          "action": "go-main"
+        }
+      ]
+    },
+    "pinnedpage": {
+      "layout": "pinned",
+      "header": {
+        "title": "pinned 钉底"
+      },
+      "body": [
+        {
+          "type": "text",
+          "value": "类型2:底钮恒钉屏内,列表再长按钮也不走。1 2 3 4 5 6 7 8 滚动试试。",
+          "style": "normal"
+        }
+      ],
+      "bottom": [
+        {
+          "type": "button",
+          "label": "返回",
+          "style": "primary",
+          "action": "go-main"
+        }
+      ]
+    }
+  },
+  "actions": {
+    "go-main": {
+      "type": "navigate",
+      "page": "main"
+    },
+    "go-hero": {
+      "type": "navigate",
+      "page": "hero"
+    },
+    "go-heroFull": {
+      "type": "navigate",
+      "page": "heroFull"
+    },
+    "go-fitpage": {
+      "type": "navigate",
+      "page": "fitpage"
+    },
+    "go-listpage": {
+      "type": "navigate",
+      "page": "listpage"
+    },
+    "go-pinnedpage": {
+      "type": "navigate",
+      "page": "pinnedpage"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "demo.music",
+  "name": "正在播放",
+  "version": 1,
+  "icon": "music.note",
+  "colors": ["#8E5CFF", "#4626A8"],
+  "loadOnStart": false,
+  "permissions": [
+    { "capability": "nativePage", "scope": "music", "required": true }
+  ],
+  "state": {},
+  "pages": {
+    "main": { "native": "music", "body": [] }
+  },
+  "actions": {}
+}
