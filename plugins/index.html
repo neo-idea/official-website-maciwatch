@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plugin System — MaciWatch</title>
-  <meta name="description" content="MaciWatch plugins: a single declarative JSON manifest runs a mini app on your watch. AI prompt, online builder, manifest reference, plus built-in and community-shared example plugins." />
+  <title>Plugin System — Mac Watch</title>
+  <meta name="description" content="Mac Watch plugins: a single declarative JSON manifest runs a mini app on your watch. AI prompt, online builder, manifest reference, plus built-in and community-shared example plugins." />
   <meta name="theme-color" content="#070707" />
-  <link rel="canonical" href="https://maciwatch.zpad.app/plugins/" />
+  <link rel="canonical" href="https://macwatch.zpad.app/plugins/" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="apple-touch-icon" href="/assets/app-icon.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="MaciWatch" />
-  <meta property="og:title" content="Plugin System — MaciWatch" />
+  <meta property="og:site_name" content="Mac Watch" />
+  <meta property="og:title" content="Plugin System — Mac Watch" />
   <meta property="og:description" content="One declarative JSON manifest runs a mini app on your watch: AI prompt, online builder, format reference, and community example plugins." />
-  <meta property="og:url" content="https://maciwatch.zpad.app/plugins/" />
-  <meta property="og:image" content="https://maciwatch.zpad.app/assets/app-icon.png" />
+  <meta property="og:url" content="https://macwatch.zpad.app/plugins/" />
+  <meta property="og:image" content="https://macwatch.zpad.app/assets/app-icon.png" />
   <meta name="twitter:card" content="summary" />
-  <script type="module" crossorigin src="/assets/plugins-CGZaQo_w.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/main-DgMcCUZZ.js">
+  <script type="module" crossorigin src="/assets/plugins-Ba5lIaiq.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-BHF7BZhh.js">
   <link rel="stylesheet" crossorigin href="/assets/main-CYS36cmx.css">
   <link rel="stylesheet" crossorigin href="/assets/plugins-DxWReZ63.css">
 </head>
@@ -38,9 +38,9 @@
 
   <header class="site-header" data-header>
     <div class="shell header-inner">
-      <a class="brand" href="/" aria-label="MaciWatch home">
+      <a class="brand" href="/" aria-label="Mac Watch home">
         <img src="/assets/app-icon.png" alt="" width="32" height="32" />
-        <span>MaciWatch</span>
+        <span>Mac Watch</span>
       </a>
       <nav class="primary-nav" id="site-nav" aria-label="Primary">
         <a href="/#flow">Experience</a>
@@ -66,7 +66,7 @@
         <a class="legal-back" href="/">Back to home</a>
         <p class="eyebrow">Plugins</p>
         <h1 id="plugins-title">One JSON file,<br />a new mini app on your watch</h1>
-        <p>MaciWatch plugins are purely declarative manifests: metadata, page components, settings, and HTTP actions live in one JSON file. Import it and it runs — no code required.</p>
+        <p>Mac Watch plugins are purely declarative manifests: metadata, page components, settings, and HTTP actions live in one JSON file. Import it and it runs — no code required.</p>
         <div class="fact-chips" aria-label="Plugin capabilities overview">
           <span>Declarative JSON</span>
           <span>HTTP + JSONPath</span>
@@ -91,7 +91,7 @@
         </article>
         <article>
           <span class="step-no">02</span>
-          <h3>Import into MaciWatch</h3>
+          <h3>Import into Mac Watch</h3>
           <p>Crown-click to open the Honeycomb → Plugin Manager → Import at the top right: pick a JSON file or paste the manifest text. Re-importing the same id overwrites and reinstalls.</p>
         </article>
         <article>
@@ -106,7 +106,7 @@
       <div class="shell section-head">
         <p class="eyebrow">AI Prompt</p>
         <h2 id="ai-title">Let AI write your plugin</h2>
-        <p>Don't want to hand-write JSON? Copy the format prompt below into any AI (ChatGPT, Claude, GLM…), describe your need at the end, and it will produce a plugin manifest ready to import into MaciWatch.</p>
+        <p>Don't want to hand-write JSON? Copy the format prompt below into any AI (ChatGPT, Claude, GLM…), describe your need at the end, and it will produce a plugin manifest ready to import into Mac Watch.</p>
       </div>
       <div class="shell">
         <div class="ai-card">
@@ -114,7 +114,7 @@
             <ol class="ai-steps">
               <li>Copy the prompt</li>
               <li>Paste it into an AI and describe your need</li>
-              <li>Import the generated JSON into MaciWatch</li>
+              <li>Import the generated JSON into Mac Watch</li>
             </ol>
             <button class="button download" type="button" data-copy-ai-prompt><svg aria-hidden="true"><use href="#i-copy" /></svg>Copy prompt</button>
           </div>
@@ -128,7 +128,7 @@
       <div class="shell section-head">
         <p class="eyebrow">Plugin Builder</p>
         <h2 id="generator-title">Online plugin builder</h2>
-        <p>Configure on the left and watch the Manifest V2 JSON preview update live on the right. Permissions are derived from your actions and remote images; copy or download when done, then import into MaciWatch.</p>
+        <p>Configure on the left and watch the Manifest V2 JSON preview update live on the right. Permissions are derived from your actions and remote images; copy or download when done, then import into Mac Watch.</p>
       </div>
       <div class="shell generator-layout">
         <form class="generator-form" id="generator-form" aria-label="Plugin manifest configuration" novalidate>
@@ -205,6 +205,17 @@
               <label class="gen-field"><span>Page icon</span>
                 <input data-gen="page-icon" type="text" placeholder="empty = use plugin icon" spellcheck="false" />
               </label>
+              <label class="gen-field"><span>Layout template <code>layout</code></span>
+                <select data-gen="layout">
+                  <option value="auto">Auto (scrolling hero)</option>
+                  <option value="hero">hero — scrolling flow</option>
+                  <option value="heroFull">heroFull — first screen pins</option>
+                  <option value="fit">fit — one screen, adaptive</option>
+                  <option value="list">list — fixed header + scroll</option>
+                  <option value="pinned">pinned — bottom bar pinned</option>
+                </select>
+                <small>Six layout templates of the app's unified page system; <code>auto</code> omits the field</small>
+              </label>
             </div>
 
             <div class="gen-subhead">
@@ -255,7 +266,7 @@
           <div class="preview-head">
             <div>
               <strong id="preview-filename">plugin.json</strong>
-              <p id="preview-status" role="status">Manifest is valid — ready to import into MaciWatch</p>
+              <p id="preview-status" role="status">Manifest is valid — ready to import into Mac Watch</p>
             </div>
             <div class="preview-actions">
               <button class="button ghost" type="button" data-copy-json><svg aria-hidden="true"><use href="#i-copy" /></svg>Copy</button>
@@ -278,7 +289,7 @@
       <div class="shell section-head">
         <p class="eyebrow">Reference</p>
         <h2 id="docs-title">Manifest format reference</h2>
-        <p>Fields and behavior map one-to-one to MaciWatch's built-in parser; in the examples, <code>·</code> marks the default value when an optional field is omitted.</p>
+        <p>Fields and behavior map one-to-one to Mac Watch's built-in parser; in the examples, <code>·</code> marks the default value when an optional field is omitted.</p>
       </div>
       <div class="shell legal-content plugins-docs-content">
         <nav class="legal-toc" aria-label="Plugin docs table of contents">
@@ -324,7 +335,7 @@
 
           <section id="pages">
             <h2>2. Pages &amp; headers</h2>
-            <p>Every page (<code>PluginPage</code>) has four parts: a header, a body component array, an optional settings section, and optional bottom buttons. The page renders in a scrolling header / main / extras / bottom layout.</p>
+            <p>Every page (<code>PluginPage</code>) has four parts: a header, a body component array, an optional settings section, and optional bottom buttons. Pages render on one of five layout templates (see the layout model below) selected by the <code>layout</code> field.</p>
             <div class="table-wrap docs-table">
               <table>
                 <thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Description</th></tr></thead>
@@ -333,7 +344,8 @@
                   <tr><th scope="row"><code>body</code></th><td>Array</td><td>Body components, see next section; may be empty</td></tr>
                   <tr><th scope="row"><code>settings</code></th><td>Array</td><td>Settings controls that write back to state on change; optional</td></tr>
                   <tr><th scope="row"><code>bottom</code></th><td>Array</td><td>Bottom buttons; optional</td></tr>
-                  <tr><th scope="row"><code>fit</code></th><td>Bool</td><td><code>true</code> = fits one screen (FitPage): the center doesn't scroll and content adapts — text auto-shrinks, rings / QR codes fill the center; defaults to <code>false</code> with overflow scrolling + a breathing collapse arrow at the bottom</td></tr>
+                  <tr><th scope="row"><code>layout</code></th><td>String</td><td>Layout template of the app's unified page system; an explicit value overrides <code>fit</code>. <code>hero</code> · scrolling flow — header / body / settings / bottom scroll as one page (default); <code>heroFull</code> · first screen pins — header / hero / bottom always fill screen 1, settings start on screen 2; <code>fit</code> · one-screen adaptive center, no scrolling (equals <code>fit: true</code>); <code>list</code> · fixed header + scrolling center, bottom buttons flow at the end of content; <code>pinned</code> · fixed header + scrolling center + bottom bar pinned — buttons never leave the screen. Omitted = automatic: <code>fit:true → fit</code>, otherwise <code>hero</code></td></tr>
+                  <tr><th scope="row"><code>fit</code></th><td>Bool</td><td>Legacy shorthand for <code>layout: "fit"</code>: <code>true</code> = fits one screen (FitPage) — the center doesn't scroll and content adapts; defaults to <code>false</code> with overflow scrolling + a breathing collapse arrow. Prefer the explicit <code>layout</code> field</td></tr>
                   <tr><th scope="row"><code>native</code></th><td>String</td><td>Native page marker (currently whitelists <code>music</code>): renders the built-in Music app for the whole page (QR login / grid / player), identical to the native one — the plugin is just an entry point</td></tr>
                 </tbody>
               </table>
@@ -351,7 +363,19 @@
             </div>
 
             <h3 id="layouts">Layout model</h3>
-            <p>Every plugin page runs on the app's unified watch layout system — a header, a center body, a persistent settings area, and bottom buttons. Two modes come out of the box, and both obey the app's two layout principles: <strong>the first screen always fits</strong> (nothing clipped or overflowing), and <strong>content below the fold is hinted by a breathing arrow</strong> in the bottom-right corner.</p>
+            <p>Every plugin page runs on the app's unified watch layout system — the same five skeletons the built-in apps use (plus a native shortcut). Set one with the <code>layout</code> field. All templates obey two principles: <strong>the first screen always fits</strong> (nothing clipped or overflowing), and <strong>content below the fold is hinted by a breathing arrow</strong> in the bottom-right corner wherever scrolling exists.</p>
+            <div class="table-wrap docs-table">
+              <table>
+                <thead><tr><th scope="col">layout</th><th scope="col">Model</th><th scope="col">Best for</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row"><code>hero</code> · default</th><td>Type 4 scrolling flow — header / hero / settings / bottom scroll as one page; the hero centers when content fits</td><td>Dashboards with a focal metric + a settings tail (weather, rates)</td></tr>
+                  <tr><th scope="row"><code>heroFull</code></th><td>Type 4 first-screen-pinned — header / hero / bottom always occupy screen 1; settings start on screen 2</td><td>Immersive hero pages that keep controls on a second screen (health, interpreting)</td></tr>
+                  <tr><th scope="row"><code>fit</code></th><td>Type 5 one-screen — adaptive center that never scrolls; text auto-shrinks, rings / QR codes fill the center</td><td>Single-purpose pages (hitokoto, QR code, a lone counter)</td></tr>
+                  <tr><th scope="row"><code>list</code></th><td>Type 3 — fixed header + scrolling center; no pinned bar, bottom buttons flow at the end of content</td><td>Long feeds where buttons belong to the content tail</td></tr>
+                  <tr><th scope="row"><code>pinned</code></th><td>Type 2 — fixed header + scrolling center + bottom bar pinned on screen</td><td>Action-heavy pages: the primary button never scrolls away (repo radar, exchange)</td></tr>
+                </tbody>
+              </table>
+            </div>
             <div class="layout-states" aria-label="Fold arrow states">
               <figure class="layout-state">
                 <div class="wm-mini"><div class="wm-device" aria-hidden="true">
@@ -370,7 +394,7 @@
                     <main class="wm-body wm-flow">
                       <p class="wm-metric"><strong>42.8k</strong><small>★</small></p>
                       <p class="wm-caption">More repos below…</p>
-                      <div class="wm-row"><div class="wm-row-meta"><span class="wm-row-t">neo-idea/MaciWatch</span></div><span class="wm-row-v">42.8k</span></div>
+                      <div class="wm-row"><div class="wm-row-meta"><span class="wm-row-t">neo-idea/mac-watch</span></div><span class="wm-row-v">42.8k</span></div>
                     </main>
                     <span class="wm-fold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg></span>
                     <footer class="wm-footer"><span class="wm-btn primary">Refresh</span></footer>
@@ -394,8 +418,9 @@
               </figure>
             </div>
             <ul>
-              <li><strong>Default scrolling page</strong>: header / body / settings / bottom all scroll as one page. When content overflows, the breathing fold arrow appears (hidden while everything fits, ↓ while there is more below, ↑ once you reach the end).</li>
-              <li><strong>One-screen fit page</strong> (<code>fit: true</code>): the center never scrolls — content adapts instead. Text auto-shrinks down to 50% to stay fully visible, and rings / QR codes / images fill the center area.</li>
+              <li><strong>Picking a template</strong>: <code>layout</code> maps one-to-one onto the skeletons the built-in apps use — start from the table above; omitted, the app falls back to <code>fit:true → fit</code>, otherwise <code>hero</code>.</li>
+              <li><strong>Scrolling templates</strong> (hero / heroFull / list / pinned): when content overflows, the breathing fold arrow appears (hidden while everything fits, ↓ while there is more below, ↑ once you reach the end). On <code>pinned</code> and <code>heroFull</code>, only the center region scrolls — header and bottom stay put.</li>
+              <li><strong>One-screen fit page</strong> (<code>fit</code>): the center never scrolls — content adapts instead. Text auto-shrinks down to 50% to stay fully visible, and rings / QR codes / images fill the center area.</li>
               <li><strong>Sub-pages, never popups</strong>: <code>navigate</code> switches pages full-screen and the header gains a back arrow — the app has no alert popups at all. Destructive bottom buttons use double-tap confirm (first tap turns red + shake) instead of a dialog.</li>
               <li><strong>Header overflow guard</strong>: more than two trailing controls collapse the leading ones into a glass <code>⋯</code> menu — put your high-frequency actions last in the <code>trailing</code> array.</li>
             </ul>
@@ -482,7 +507,7 @@
               <li><strong>Default refresh action</strong>: the first <code>http</code> action (otherwise the first action). Runs once when the plugin opens with <code>loadOnStart</code> ≠ <code>false</code>; repeats on a cycle when <code>refreshInterval</code> ≥ 5 seconds.</li>
               <li><strong>Template variables</strong>: <code>{{key}}</code> is replaced with the current state value (numbers and booleans stringify directly); keys missing from state stay as-is, which makes step-by-step debugging easy.</li>
               <li><strong>Player data source <code>np.*</code></strong>: a <code>bind</code> starting with <code>np.</code> bypasses plugin state and reads the built-in player live (<code>np.title</code>, <code>np.artist</code>, <code>np.playlist</code>, <code>np.cover</code>, <code>np.isPlaying</code>, <code>np.isLoading</code>, <code>np.index</code>, <code>np.total</code>, <code>np.currentTime</code>, <code>np.duration</code>, <code>np.progress</code>, <code>np.timeText</code>); read-only — <code>set</code> / <code>extract</code> / settings / list <code>onTap</code> prefixes cannot write to it.</li>
-              <li><strong>Layout semantics</strong>: pages scroll on overflow by default (a breathing collapse arrow at the bottom hints at more content and flips once you reach the end); <code>fit: true</code> forces a one-screen fit with an adaptive center.</li>
+              <li><strong>Layout semantics</strong>: <code>layout</code> picks one of the five unified templates (hero · heroFull · fit · list · pinned); scrolling templates show a breathing fold arrow on overflow (↓ more below, ↑ at the end), <code>fit</code> forces a one-screen adaptive center, and <code>pinned</code> keeps the bottom bar always on screen.</li>
               <li><strong>State persistence</strong>: state is written to local UserDefaults on first change (key <code>plugin.state.&lt;id&gt;</code>) and survives app restarts; Plugin Manager can reset it to the initial values.</li>
               <li><strong>Feedback</strong>: a glass loading state shows while a request is in flight; failures surface a notice under the header that clears automatically on success.</li>
             </ul>
@@ -491,7 +516,7 @@
           <section id="install">
             <h2>8. Install &amp; manage</h2>
             <ul>
-              <li><strong>Location</strong>: <code>~/Library/Application Support/MaciWatch/plugins/&lt;id&gt;.json</code>; you can also drop files in manually — Plugin Manager scans the folder automatically.</li>
+              <li><strong>Location</strong>: <code>~/Library/Application Support/Mac Watch/plugins/&lt;id&gt;.json</code>; you can also drop files in manually — Plugin Manager scans the folder automatically.</li>
               <li><strong>Importing</strong>: Plugin Manager → Import at the top right → pick a JSON file or paste the manifest text; the filename doesn't matter — the manifest's own <code>id</code> decides what lands on disk.</li>
               <li><strong>Overwrite &amp; uninstall</strong>: re-importing the same id overwrites and reinstalls; Plugin Manager supports deleting and hiding from the Honeycomb (visibility is just a hidden list).</li>
               <li><strong>Built-in examples</strong>: Exchange Rates, Hitokoto, and the community-build Now Playing entry are seeded on first launch — modify or delete them freely. Every example manifest declares its permissions explicitly.</li>
@@ -633,12 +658,12 @@
                 </header>
                 <main class="wm-body wm-flow">
                   <p class="wm-metric"><strong>42.8k</strong><small>★</small></p>
-                  <p class="wm-hero wm-accent">neo-idea/MaciWatch</p>
+                  <p class="wm-hero wm-accent">neo-idea/mac-watch</p>
                   <p class="wm-caption">Tap a repo for details · language:swift</p>
                   <div class="wm-divider"></div>
                   <div class="wm-list">
                     <div class="wm-row">
-                      <div class="wm-row-meta"><span class="wm-row-t">neo-idea/MaciWatch</span><span class="wm-row-s">Desk watch for macOS</span></div>
+                      <div class="wm-row-meta"><span class="wm-row-t">neo-idea/mac-watch</span><span class="wm-row-s">Desk watch for macOS</span></div>
                       <span class="wm-row-v">42.8k</span>
                     </div>
                     <div class="wm-row">
@@ -748,14 +773,14 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <a class="brand light" href="/"><img src="/assets/app-icon.png" alt="" width="32" height="32" /><span>MaciWatch</span></a>
+        <a class="brand light" href="/"><img src="/assets/app-icon.png" alt="" width="32" height="32" /><span>Mac Watch</span></a>
         <p>A paid native desk watch for macOS. Focused, lightweight, interactive.</p>
       </div>
       <nav aria-label="Product"><h2>Product</h2><a href="/#flow">Experience</a><a href="/#faces">Faces</a><a href="/#music">Music</a><a href="/plugins/" aria-current="page">Plugins</a><a href="/#download">Get</a></nav>
       <nav aria-label="Business"><h2>Business</h2><a href="/#license">Licensing</a><a href="mailto:license@zpad.app">Contact Licensing</a><a href="/#faq">FAQ</a></nav>
       <nav aria-label="Legal"><h2>Legal</h2><a href="/terms/">Terms of Service</a><a href="/privacy/">Privacy Policy</a></nav>
-      <p class="footer-word" aria-hidden="true">MaciWatch</p>
-      <p class="legal">© <span data-year>2026</span> MaciWatch Authors. All rights reserved. Apple, Apple Watch, and macOS are trademarks of Apple Inc.</p>
+      <p class="footer-word" aria-hidden="true">Mac Watch</p>
+      <p class="legal">© <span data-year>2026</span> Mac Watch Authors. All rights reserved. Apple, Apple Watch, and macOS are trademarks of Apple Inc.</p>
     </div>
   </footer>
 
