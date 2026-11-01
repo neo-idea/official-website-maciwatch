@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mac Watch — A Floating Desk Watch for macOS</title>
-  <meta name="description" content="Mac Watch is a paid native macOS app: an interactive desk watch with 9 faces, multi-platform music, and a true desktop floating window." />
+  <meta name="description" content="Mac Watch is a native macOS desk watch with 9 faces, a music hub, and JSON plugins that show your YouTube subscribers, Bilibili followers, exchange rates, and more." />
   <meta name="theme-color" content="#070707" />
   <link rel="canonical" href="https://macwatch.zpad.app/" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mac Watch" />
   <meta property="og:title" content="Mac Watch — A Floating Desk Watch for macOS" />
-  <meta property="og:description" content="A paid native macOS app: an interactive Crown, 8 watch faces, a music hub, and a floating window that actually belongs on your desktop." />
+  <meta property="og:description" content="A native macOS desk watch with an interactive Crown, 9 faces, a music hub, and JSON plugins for the data you actually want on your wrist." />
   <meta property="og:url" content="https://macwatch.zpad.app/" />
   <meta property="og:image" content="https://macwatch.zpad.app/assets/app-icon.png" />
   <meta name="twitter:card" content="summary" />
-  <script type="module" crossorigin src="/assets/main-nlU5C5j_.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-B2xf76h5.css">
+  <script type="module" crossorigin src="/assets/main-B1eoC0Qg.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-CJ6i5wvm.css">
 </head>
 <body>
   <svg class="icon-system" aria-hidden="true" focusable="false">
@@ -69,8 +69,8 @@
         <img class="hero-icon" src="/assets/app-icon.png" alt="" width="112" height="112" />
         <h1 id="hero-title">Give macOS<br />an extra <span class="italic">wrist</span></h1>
         <p class="hero-subtext">
-          A Crown, a side button, nine watch faces, and a music hub — packed into one native floating watch.<br />
-          The time sits beside your work, and so do the controls.
+          A Crown, a side button, nine watch faces, a music hub, and a JSON plugin system — packed into one native floating watch.<br />
+          Put your YouTube subscribers, Bilibili followers, launch schedule, or exchange rate beside your work.
         </p>
         <div class="hero-actions">
           <a class="button download" href="#download">Download for Mac</a>
@@ -130,7 +130,7 @@
       <div class="shell value-grid">
         <article><svg aria-hidden="true"><use href="#i-clock" /></svg><p>Attention stays on the main thread —<br />key information lives at the edge of your vision.</p></article>
         <article><svg aria-hidden="true"><use href="#i-crown" /></svg><p>The Crown and side button form a complete path —<br />one less window switch.</p></article>
-        <article><svg aria-hidden="true"><use href="#i-bolt" /></svg><p>Native SwiftUI and system playback —<br />no browser shell.</p></article>
+        <article><svg aria-hidden="true"><use href="#i-grid" /></svg><p>JSON plugins customize the layout, data, colors, and actions —<br />no Xcode required.</p></article>
       </div>
     </section>
 
@@ -211,10 +211,48 @@
 
     <section class="section plugins-section" id="plugins" aria-labelledby="plugins-title">
       <div class="shell section-head">
-        <p class="eyebrow">Plugin Ecosystem</p>
-        <h2 id="plugins-title">One JSON manifest, five layout templates</h2>
-        <p>Declarative plugins render on the app's unified page system — pick a skeleton per page, bind state to components, wire actions. Build online, import with one tap.</p>
+        <p class="eyebrow">Plugin Studio</p>
+        <h2 id="plugins-title">Customize what your watch shows</h2>
+        <p>A plugin is one JSON manifest: choose the page layout, bind live data to components, set colors and actions, then import it. No Xcode, no browser shell, no waiting for us to build your idea.</p>
       </div>
+
+      <div class="shell plugins-panel plugin-studio">
+        <article class="plugin-brief">
+          <h3>Four decisions make a plugin</h3>
+          <ol class="plugin-decisions">
+            <li><strong>Layout</strong><span>hero, fit, list, pinned, or full-screen hero</span></li>
+            <li><strong>Content</strong><span>metrics, text, progress, lists, QR codes, images</span></li>
+            <li><strong>Data</strong><span>HTTPS + JSONPath, local state, or Now Playing</span></li>
+            <li><strong>Style</strong><span>colors, gradients, settings, refresh and open actions</span></li>
+          </ol>
+          <div class="plugin-manifest" aria-hidden="true">
+            <span>{ "layout": "pinned" }</span>
+            <span>{ "bind": "subscriberCount" }</span>
+            <span>{ "colors": ["#FF4E45", "#8F140E"] }</span>
+          </div>
+          <a class="button download" href="/plugins/#generator">Open plugin builder</a>
+        </article>
+
+        <div class="plugin-preview-grid" aria-label="Plugin examples">
+          <article class="plugin-preview youtube">
+            <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7.5v9l7.5-4.5z"/><rect x="2.5" y="5" width="19" height="14" rx="4"/></svg><span>YouTube</span></div>
+            <strong>1.24M</strong><small>subscribers</small>
+            <span class="preview-action">Auto refresh</span>
+          </article>
+          <article class="plugin-preview bilibili">
+            <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l2.4 2.5h5.2L17 4M6.5 8h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"/><path d="M10.5 12v3M13.5 12v3"/></svg><span>Bilibili</span></div>
+            <strong>86.4K</strong><small>followers</small>
+            <span class="preview-action">UID in settings</span>
+          </article>
+          <article class="plugin-preview exchange">
+            <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg><span>Exchange</span></div>
+            <strong>7.23</strong><small>USD → CNY</small>
+            <span class="preview-action">JSONPath</span>
+          </article>
+          <a class="demo-more" href="/plugins/#examples"><span>See 9 importable examples</span><svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        </div>
+      </div>
+
       <div class="shell plugins-panel">
         <div class="layout-grid" role="list" aria-label="Layout templates">
           <article role="listitem"><span class="layout-tag">hero</span><h3>Scrolling flow</h3><p>Header, hero, settings, and bottom scroll as one page.</p></article>
@@ -222,19 +260,6 @@
           <article role="listitem"><span class="layout-tag">fit</span><h3>One-screen adaptive</h3><p>Center never scrolls — text auto-shrinks, rings and QR fill.</p></article>
           <article role="listitem"><span class="layout-tag">list</span><h3>Fixed header list</h3><p>Long feeds with buttons flowing at the content tail.</p></article>
           <article role="listitem"><span class="layout-tag">pinned</span><h3>Bottom bar pinned</h3><p>Primary actions never scroll away — always one tap away.</p></article>
-        </div>
-        <div class="plugin-demos" aria-label="Example plugins">
-          <article class="demo-card">
-            <span class="demo-icon rocket" aria-hidden="true">🚀</span>
-            <div><h3>Next Launch</h3><p>Mission, rocket, status, and pad from the LL2 launch schedule — auto-refreshed.</p></div>
-            <a href="/plugins/#examples">View</a>
-          </article>
-          <article class="demo-card">
-            <span class="demo-icon play" aria-hidden="true">▶</span>
-            <div><h3>YouTube Stats</h3><p>Subscriber, view, and video counts for any channel — switch right in settings.</p></div>
-            <a href="/plugins/#examples">View</a>
-          </article>
-          <a class="demo-more" href="/plugins/"><span>Online builder, manifest reference, and 8 examples</span><svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
         </div>
       </div>
     </section>
@@ -251,6 +276,7 @@
           <tbody>
             <tr><th scope="row">Crown / side button interaction</th><td><svg role="img" aria-label="Supported"><use href="#i-check" /></svg></td><td><svg role="img" aria-label="Not supported"><use href="#i-minus" /></svg></td><td><svg role="img" aria-label="Not supported"><use href="#i-minus" /></svg></td></tr>
             <tr><th scope="row">Multiple watch faces</th><td><svg role="img" aria-label="Supported"><use href="#i-check" /></svg></td><td><svg role="img" aria-label="Partial support"><use href="#i-minus" /></svg></td><td><svg role="img" aria-label="Partial support"><use href="#i-minus" /></svg></td></tr>
+            <tr><th scope="row">JSON plugin customization</th><td><svg role="img" aria-label="Supported"><use href="#i-check" /></svg></td><td><svg role="img" aria-label="Not supported"><use href="#i-minus" /></svg></td><td><svg role="img" aria-label="Partial support"><use href="#i-minus" /></svg></td></tr>
             <tr><th scope="row">Music queue control</th><td><svg role="img" aria-label="Supported"><use href="#i-check" /></svg></td><td><svg role="img" aria-label="Not supported"><use href="#i-minus" /></svg></td><td><svg role="img" aria-label="Partial support"><use href="#i-minus" /></svg></td></tr>
             <tr><th scope="row">Click-through / full-space window</th><td><svg role="img" aria-label="Supported"><use href="#i-check" /></svg></td><td><svg role="img" aria-label="Partial support"><use href="#i-minus" /></svg></td><td><svg role="img" aria-label="Not supported"><use href="#i-minus" /></svg></td></tr>
             <tr><th scope="row">Native window levels</th><td><svg role="img" aria-label="Supported"><use href="#i-check" /></svg></td><td><svg role="img" aria-label="Partial support"><use href="#i-minus" /></svg></td><td><svg role="img" aria-label="Not supported"><use href="#i-minus" /></svg></td></tr>

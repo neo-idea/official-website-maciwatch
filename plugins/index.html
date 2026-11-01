@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Plugin System — Mac Watch</title>
-  <meta name="description" content="Mac Watch plugins: a single declarative JSON manifest runs a mini app on your watch. AI prompt, online builder, manifest reference, plus built-in and community-shared example plugins." />
+  <meta name="description" content="Mac Watch plugins: one declarative JSON manifest customizes the layout, content, data, colors, and actions of a mini app on your watch. Includes an online builder, manifest reference, YouTube and Bilibili examples, and community plugins." />
   <meta name="theme-color" content="#070707" />
   <link rel="canonical" href="https://macwatch.zpad.app/plugins/" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
@@ -12,14 +12,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mac Watch" />
   <meta property="og:title" content="Plugin System — Mac Watch" />
-  <meta property="og:description" content="One declarative JSON manifest runs a mini app on your watch: AI prompt, online builder, format reference, and community example plugins." />
+  <meta property="og:description" content="Customize layout, content, data, and style in one declarative JSON manifest, then run it on your watch. Includes a builder, format reference, YouTube and Bilibili examples, and community plugins." />
   <meta property="og:url" content="https://macwatch.zpad.app/plugins/" />
   <meta property="og:image" content="https://macwatch.zpad.app/assets/app-icon.png" />
   <meta name="twitter:card" content="summary" />
-  <script type="module" crossorigin src="/assets/plugins-CoxeFKPI.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/main-nlU5C5j_.js">
-  <link rel="stylesheet" crossorigin href="/assets/main-B2xf76h5.css">
-  <link rel="stylesheet" crossorigin href="/assets/plugins-DxWReZ63.css">
+  <script type="module" crossorigin src="/assets/plugins-BHuf0Wvo.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-B1eoC0Qg.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-CJ6i5wvm.css">
+  <link rel="stylesheet" crossorigin href="/assets/plugins-DzyF-ixI.css">
 </head>
 <body>
   <svg class="icon-system" aria-hidden="true" focusable="false">
@@ -73,11 +73,40 @@
           <span>14 content components</span>
           <span>State persists locally</span>
           <span>{{template}} variables</span>
-          <span>AI prompt included</span>
+          <span>Custom layouts, content, and actions</span>
         </div>
       </div>
     </section>
 
+    <section class="section plugins-quickstart customization-section" id="customize" aria-labelledby="customize-title">
+      <div class="shell section-head">
+        <p class="eyebrow">Customization</p>
+        <h2 id="customize-title">Choose the layout, then bring your own data</h2>
+        <p>Every plugin controls the same four layers. Start from an example, change a few fields, and the watch renders your version.</p>
+      </div>
+      <div class="shell customization-grid">
+        <article>
+          <span class="step-no">Layout</span>
+          <h3>Decide how it reads</h3>
+          <p>Use a scrolling feed, a one-screen metric, a fixed list, or a pinned bottom action. The plugin inherits the app's navigation, scaling, and watch controls.</p>
+        </article>
+        <article>
+          <span class="step-no">Content</span>
+          <h3>Choose the components</h3>
+          <p>Bind subscriber counts, follower counts, exchange rates, text, lists, progress rings, QR codes, images, and settings pickers to state keys.</p>
+        </article>
+        <article>
+          <span class="step-no">Data</span>
+          <h3>Fetch only what you need</h3>
+          <p>HTTPS actions and JSONPath map API responses into local state. Declare a scope, authorize it once, and revoke it later.</p>
+        </article>
+        <article>
+          <span class="step-no">Style</span>
+          <h3>Make it yours</h3>
+          <p>Set icon, accent colors, gradient background, refresh behavior, and open actions. Your plugin appears as its own mini app in the Honeycomb.</p>
+        </article>
+      </div>
+    </section>
     <section class="section plugins-quickstart" aria-labelledby="quickstart-title">
       <div class="shell section-head">
         <p class="eyebrow">Quick start</p>
@@ -612,6 +641,66 @@
             </div>
             <details class="example-json"><summary>View manifest</summary><pre class="json-view"></pre></details>
           </article>
+          <article class="example-card" id="example-launch">
+            <div class="wm-device wm-bg-launch wm-fit-center" aria-hidden="true">
+              <div class="wm-screen">
+                <header class="wm-header">
+                  <div class="wm-header-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5l16.5-8-5.5 16.5-2.7-6-8.3-2.5z"/><path d="M11.8 15l3.5-3.5"/></svg>
+                    <span>Next Launch</span>
+                  </div>
+                  <div class="wm-trailing"><span class="wm-cbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M18.5 2.5v4h-4"/></svg></span></div>
+                </header>
+                <main class="wm-body">
+                  <p class="wm-hero">Falcon 9</p>
+                  <p class="wm-caption">Starlink Group 10-34</p>
+                  <div class="wm-divider"></div>
+                  <div class="wm-list">
+                    <div class="wm-row"><div class="wm-row-meta"><span class="wm-row-t">Status</span><span class="wm-row-s">Go for launch</span></div><span class="wm-row-v">TBD</span></div>
+                    <div class="wm-row"><div class="wm-row-meta"><span class="wm-row-t">Site</span><span class="wm-row-s">Cape Canaveral</span></div><span class="wm-row-v">LC-40</span></div>
+                  </div>
+                </main>
+                <footer class="wm-footer"><span class="wm-btn primary">Refresh</span><span class="wm-btn plain">Website</span></footer>
+              </div>
+            </div>
+            <h3>Next Launch · demo.spacex <span class="example-badge">Built-in</span></h3>
+            <p>A scheduled-data layout: one HTTPS request maps rocket, mission, status, time, and site into state; refresh every 15 minutes and open the launch site from the bottom bar.</p>
+            <div class="example-actions">
+              <button class="button download" type="button" data-download-example="demo.spacex"><svg aria-hidden="true"><use href="#i-download" /></svg>Download JSON</button>
+              <button class="button ghost" type="button" data-load-example="demo.spacex">Load in builder</button>
+            </div>
+            <details class="example-json"><summary>View manifest</summary><pre class="json-view"></pre></details>
+          </article>
+          <article class="example-card" id="example-youtube">
+            <div class="wm-device wm-bg-youtube wm-fit-center wm-dense" aria-hidden="true">
+              <div class="wm-screen">
+                <header class="wm-header">
+                  <div class="wm-header-title">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.2V6.5l9-2v11.2a2.8 2.8 0 1 1-1.8-2.6V7.3L10.8 8.8v9.4a2.8 2.8 0 1 1-1.8-2.6z"/></svg>
+                    <span>YouTube Stats</span>
+                  </div>
+                  <div class="wm-trailing"><span class="wm-cbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M18.5 2.5v4h-4"/></svg></span></div>
+                </header>
+                <main class="wm-body">
+                  <p class="wm-hero">Mac Watch Studio</p>
+                  <div class="wm-stats">
+                    <div class="wm-stat"><span class="wm-stat-v">1.24M</span><span class="wm-stat-c">Subs</span></div>
+                    <div class="wm-stat"><span class="wm-stat-v">86M</span><span class="wm-stat-c">Views</span></div>
+                    <div class="wm-stat"><span class="wm-stat-v">312</span><span class="wm-stat-c">Videos</span></div>
+                  </div>
+                </main>
+                <section class="wm-settings"><div class="wm-setting"><span class="wm-setting-label">Channel</span><span class="wm-picker">ID <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></div></section>
+                <footer class="wm-footer"><span class="wm-btn primary">Refresh</span><span class="wm-btn plain">Open</span></footer>
+              </div>
+            </div>
+            <h3>YouTube Stats · demo.youtube <span class="example-badge">Built-in</span></h3>
+            <p>A creator dashboard: channel picker in settings, subscriber / view / video stats in the body, and an Open Channel action. Add your Google API key, set <code>loadOnStart</code> back on, and it becomes your own live counter.</p>
+            <div class="example-actions">
+              <button class="button download" type="button" data-download-example="demo.youtube"><svg aria-hidden="true"><use href="#i-download" /></svg>Download JSON</button>
+              <button class="button ghost" type="button" data-load-example="demo.youtube">Load in builder</button>
+            </div>
+            <details class="example-json"><summary>View manifest</summary><pre class="json-view"></pre></details>
+          </article>
           <article class="example-card">
             <div class="wm-device wm-bg-music wm-fit-center wm-dense" aria-hidden="true">
               <div class="wm-screen">
@@ -642,6 +731,32 @@
           <p>Code snippets from the community — import and go, or download and remix into your own version.</p>
         </div>
         <div class="examples-grid examples-grid-community">
+          <article class="example-card" id="example-bilibili">
+            <div class="wm-device wm-bg-bilibili wm-fit-center" aria-hidden="true">
+              <div class="wm-screen">
+                <header class="wm-header">
+                  <div class="wm-header-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l2.4 2.5h5.2L17 4"/><path d="M6.5 8h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"/><path d="M10.5 12.2v2.8M13.5 12.2v2.8"/></svg>
+                    <span>Bilibili Followers</span>
+                  </div>
+                  <div class="wm-trailing"><span class="wm-cbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M18.5 2.5v4h-4"/></svg></span></div>
+                </header>
+                <main class="wm-body">
+                  <p class="wm-metric"><strong>86.4K</strong><small>followers</small></p>
+                  <p class="wm-caption">UID 208259</p>
+                </main>
+                <section class="wm-settings"><div class="wm-setting"><span class="wm-setting-label">UP UID</span><span class="wm-picker">208259 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span></div></section>
+                <footer class="wm-footer"><span class="wm-btn primary">Refresh</span><span class="wm-btn plain">Space</span></footer>
+              </div>
+            </div>
+            <h3>Bilibili Followers · demo.bilibili <span class="example-badge community">Community</span></h3>
+            <p>A minimal creator counter: change the UP UID in settings, fetch <code>relation/stat</code> through HTTPS, show the follower metric, and jump to the space page. It needs no API key.</p>
+            <div class="example-actions">
+              <button class="button download" type="button" data-download-example="demo.bilibili"><svg aria-hidden="true"><use href="#i-download" /></svg>Download JSON</button>
+              <button class="button ghost" type="button" data-copy-example="demo.bilibili"><svg aria-hidden="true"><use href="#i-copy" /></svg>Copy JSON</button>
+            </div>
+            <details class="example-json"><summary>View manifest</summary><pre class="json-view"></pre></details>
+          </article>
           <article class="example-card">
             <div class="wm-device wm-bg-radar wm-fit-center" aria-hidden="true">
               <div class="wm-screen">
