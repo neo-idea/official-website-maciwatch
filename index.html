@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mac Watch — A Floating Desk Watch for macOS</title>
-  <meta name="description" content="Mac Watch is a native macOS desk watch with 9 faces, a music hub, and JSON plugins that show your YouTube subscribers, Bilibili followers, exchange rates, and more." />
+  <title>Mac Watch — Customizable Native Desk Watch for macOS</title>
+  <meta name="description" content="Mac Watch is a native macOS desk watch with 9 faces, a music hub, and a JSON plugin system for YouTube subscribers, Bilibili followers, exchange rates, launch schedules, and more." />
   <meta name="theme-color" content="#070707" />
   <link rel="canonical" href="https://macwatch.zpad.app/" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="apple-touch-icon" href="/assets/app-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mac Watch" />
-  <meta property="og:title" content="Mac Watch — A Floating Desk Watch for macOS" />
-  <meta property="og:description" content="A native macOS desk watch with an interactive Crown, 9 faces, a music hub, and JSON plugins for the data you actually want on your wrist." />
+  <meta property="og:title" content="Mac Watch — Customizable Native Desk Watch for macOS" />
+  <meta property="og:description" content="Customize layout, content, data, and style in JSON, then run your own mini app on a native floating Mac watch." />
   <meta property="og:url" content="https://macwatch.zpad.app/" />
   <meta property="og:image" content="https://macwatch.zpad.app/assets/app-icon.png" />
   <meta name="twitter:card" content="summary" />
-  <script type="module" crossorigin src="/assets/main-CtH9Sbli.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-B6izzNCk.css">
+  <script type="module" crossorigin src="/assets/main-D4PWrq4f.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-Bg5T5OXf.css">
 </head>
 <body>
   <svg class="icon-system" aria-hidden="true" focusable="false">
@@ -63,199 +63,113 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="shell hero-inner">
-        <a class="release-pill" href="#download"><span>Private beta</span>interactive preview now open</a>
-        <img class="hero-icon" src="/assets/app-icon.png" alt="" width="112" height="112" />
-        <h1 id="hero-title">Give macOS<br />an extra <span class="italic">wrist</span></h1>
-        <p class="hero-subtext">
-          A Crown, a side button, nine watch faces, a music hub, and a JSON plugin system — packed into one native floating watch.<br />
-          Put your YouTube subscribers, Bilibili followers, launch schedule, or exchange rate beside your work.
-        </p>
-        <div class="hero-actions">
-          <a class="button download" href="#download">Download for Mac</a>
-          <a class="text-link" href="#license">See licensing options<svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
-        </div>
-        <p class="download-meta">macOS 14+ · Apple Silicon / Intel · Commercial software</p>
-
-        <div class="hero-visual" aria-label="Mac Watch desktop product mock">
-          <div class="mac-stage">
-            <div class="stage-menu" aria-hidden="true"><span>Mac Watch</span><span>File</span><span>Window</span><span>Help</span></div>
-            <div class="stage-wall" aria-hidden="true"></div>
-            <article class="stage-note-card" aria-hidden="true">
-              <strong>Music</strong>
-              <span>Queue synced</span>
-            </article>
-            <div class="device-shell" data-device>
-              <div class="crown" aria-hidden="true"></div>
-              <div class="side-button" aria-hidden="true"></div>
-              <div class="device-screen" data-screen>
-                <section class="face active" data-face="analog" aria-label="Analog face preview">
-                  <div class="analog-dial">
-                    <span></span><span></span><span></span><span></span>
-                    <div class="hand hour" data-hour-hand></div>
-                    <div class="hand minute" data-minute-hand></div>
-                    <div class="hand second" data-second-hand></div>
-                  </div>
-                  <p>Analog</p>
-                </section>
-                <section class="face modular" data-face="modular" aria-label="Modular face preview">
-                  <p class="label" data-short-date>Mon, Oct 12</p>
-                  <p class="large-time"><span data-hour>16</span><span data-minute>:40</span></p>
-                  <div class="modules"><span>Activity 82%</span><span>Music Playing</span><span>Reminders 3</span></div>
-                  <p>Modular</p>
-                </section>
-                <section class="face rings" data-face="rings" aria-label="Activity rings face preview">
-                  <svg viewBox="0 0 120 120" aria-hidden="true">
-                    <circle cx="60" cy="60" r="50"/><circle cx="60" cy="60" r="39"/><circle cx="60" cy="60" r="28"/>
-                    <circle class="r1" cx="60" cy="60" r="50"/><circle class="r2" cx="60" cy="60" r="39"/><circle class="r3" cx="60" cy="60" r="28"/>
-                  </svg>
-                  <p class="large-time"><span data-hour>16</span><span data-minute>:40</span></p>
-                  <p>Rings</p>
-                </section>
-              </div>
-            </div>
-            <div class="stage-dock" aria-hidden="true"><span></span><span></span><span></span><span></span><span class="active"></span><span></span><span></span></div>
+    <section class="hero-next" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker"><span>Native macOS app</span>JSON plugin system</p>
+          <h1 id="hero-title">Put your own data on a Mac watch</h1>
+          <p class="hero-lede">
+            Mac Watch is a floating native desk watch. Customize the layout, content, data source, colors, and actions with one JSON manifest — no Xcode required.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button download" href="#download">Download for Mac</a>
+            <a class="button ghost" href="#plugins">See plugin system</a>
           </div>
-          <div class="face-switch" role="group" aria-label="Switch website face preview">
-            <button type="button" class="active" aria-pressed="true" data-face-button="analog">Analog</button>
-            <button type="button" aria-pressed="false" data-face-button="modular">Modular</button>
-            <button type="button" aria-pressed="false" data-face-button="rings">Rings</button>
+          <dl class="hero-proof" aria-label="Product highlights">
+            <div><dt>9</dt><dd>watch faces</dd></div>
+            <div><dt>14</dt><dd>content components</dd></div>
+            <div><dt>9</dt><dd>importable examples</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-showcase">
+          <figure class="capture-frame">
+            <img class="is-active" data-state-shot="floating" src="/assets/screenshots/desktop-floating-1920.webp" alt="Full macOS desktop showing Mac Watch floating in the upper-right corner." width="1920" height="1200" fetchpriority="high" decoding="async" />
+            <img data-state-shot="menu" src="/assets/screenshots/desktop-menu-popup-1920.webp" alt="Full macOS desktop showing the Mac Watch menu-bar panel open." width="1920" height="1200" loading="lazy" decoding="async" />
+          </figure>
+          <div class="showcase-state" role="group" aria-label="Switch desktop state">
+            <button type="button" class="is-active" aria-pressed="true" data-state-button="floating">Floating watch</button>
+            <button type="button" aria-pressed="false" data-state-button="menu">Menu-bar panel</button>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section real-states" aria-labelledby="real-states-title">
-      <div class="shell section-head">
-        <p class="eyebrow">Real macOS States</p>
-        <h2 id="real-states-title">The actual app, beside your actual work</h2>
-        <p>Production SwiftUI captures from a clean macOS environment. The floating watch stays at the edge of the desktop; the menu-bar panel opens control without reclaiming the center.</p>
-      </div>
-      <div class="shell real-state-grid">
-        <figure>
-          <img src="/assets/screenshots/desktop-floating-1920.webp" alt="Mac Watch floating in the upper-right corner of a macOS desktop." width="1920" height="1200" loading="lazy" decoding="async" />
-          <figcaption>
-            <strong>Floating watch</strong>
-            <span>Always visible at the edge, without becoming the main window.</span>
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/screenshots/desktop-menu-popup-1920.webp" alt="Mac Watch menu-bar panel open above a macOS desktop." width="1920" height="1200" loading="lazy" decoding="async" />
-          <figcaption>
-            <strong>Menu-bar panel</strong>
-            <span>Reach the watch from the menu bar and return to work.</span>
-          </figcaption>
-        </figure>
       </div>
     </section>
 
     <section class="value-strip" aria-label="Core value">
       <div class="shell value-grid">
-        <article><svg aria-hidden="true"><use href="#i-clock" /></svg><p>Attention stays on the main thread —<br />key information lives at the edge of your vision.</p></article>
-        <article><svg aria-hidden="true"><use href="#i-crown" /></svg><p>The Crown and side button form a complete path —<br />one less window switch.</p></article>
-        <article><svg aria-hidden="true"><use href="#i-grid" /></svg><p>JSON plugins customize the layout, data, colors, and actions —<br />no Xcode required.</p></article>
+        <article>
+          <svg aria-hidden="true"><use href="#i-clock" /></svg>
+          <h3>Ambient, not intrusive</h3>
+          <p>Information stays at the edge of your vision while the main task keeps the center.</p>
+        </article>
+        <article>
+          <svg aria-hidden="true"><use href="#i-crown" /></svg>
+          <h3>Built for the Crown</h3>
+          <p>Scroll, click, and back out through one physical-feeling control path.</p>
+        </article>
+        <article>
+          <svg aria-hidden="true"><use href="#i-grid" /></svg>
+          <h3>Yours through JSON</h3>
+          <p>Bind YouTube subscribers, Bilibili followers, rates, or schedules to your own layout.</p>
+        </article>
       </div>
     </section>
 
-    <section class="section flow-section" id="flow" aria-labelledby="flow-title">
-      <div class="shell section-head">
-        <p class="eyebrow">Core Experience</p>
-        <h2 id="flow-title">Work the way a watch works, not another window</h2>
-        <p>Mac Watch compresses your interaction radius to a single watch: check the time, open a mini app, control music — all without pulling focus from what you were doing.</p>
-      </div>
-      <div class="shell workspace-card">
-        <div class="workspace-copy">
-          <h3>From clock to music in two moves</h3>
-          <ol class="path-list">
-            <li><strong>Crown click</strong><span>opens Honeycomb Home</span></li>
-            <li><strong>Pick Music</strong><span>enters the platform hub and play queue</span></li>
-            <li><strong>Crown drag</strong><span>adjusts volume with an HUD</span></li>
-            <li><strong>Side button</strong><span>Player → Hub → Clock</span></li>
+    <section class="section experience-section" id="flow" aria-labelledby="flow-title">
+      <div class="shell split-section">
+        <div class="section-copy">
+          <p class="eyebrow">Core experience</p>
+          <h2 id="flow-title">From clock to mini app without a window switch</h2>
+          <p>The Honeycomb is the app's home surface. Open a mini app, act, then return to the clock without reclaiming your desktop focus.</p>
+          <ol class="step-list">
+            <li><span>01</span><strong>Crown click</strong><em>Open Honeycomb Home</em></li>
+            <li><span>02</span><strong>Pick a mini app</strong><em>Enter a plugin or native app</em></li>
+            <li><span>03</span><strong>Crown drag</strong><em>Adjust volume or values</em></li>
+            <li><span>04</span><strong>Side button</strong><em>Return to the watch face</em></li>
           </ol>
-          <div class="mode-chips" aria-label="Window modes">
-            <span>Always on top</span><span>Desktop level</span><span>Click-through</span><span>Peekaboo</span>
-          </div>
         </div>
-        <div class="demo-panel" aria-hidden="true">
-          <div class="demo-bar"><span></span><span></span><span></span></div>
-          <div class="honeycomb"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="now-playing">
-            <span class="cover"></span>
-            <div><strong>Now Playing</strong><small>Blurred cover · Glass controls · Volume HUD</small></div>
-            <span class="eq"><i></i><i></i><i></i></span>
-          </div>
-        </div>
+        <figure class="capture-frame split-capture">
+          <img src="/assets/screenshots/app-plugin-manager.webp" alt="Plugin Manager listing installed YouTube Stats, Quote, and Next Launch plugins." width="1440" height="900" loading="lazy" decoding="async" />
+          <figcaption>Installed plugins appear as their own mini apps.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section faces-section" id="faces" aria-labelledby="faces-title">
       <div class="shell section-head">
-        <p class="eyebrow">Watch Faces</p>
-        <h2 id="faces-title">Nine faces, from minimal to information-dense</h2>
-        <p>Every face reads the same state source. Switching from minimal numerals to five-ring progress never restarts the app.</p>
+        <p class="eyebrow">Watch faces</p>
+        <h2 id="faces-title">Nine complete faces, shown in full</h2>
+        <p>These are production captures, not illustrations. Each face keeps the complete watch frame and surrounding app canvas visible.</p>
       </div>
-      <div class="shell face-grid">
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-01-analog.webp" alt="Analog watch face with high-contrast hands and ticks." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Analog</h3><p>Classic hands with high-contrast ticks.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-02-modular.webp" alt="Modular watch face with time and compact complication zones." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Modular</h3><p>Time, activity, music, and reminders in dedicated zones.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-03-california.webp" alt="California watch face with hybrid vintage numerals." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>California</h3><p>A vintage dial with hybrid numerals.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-04-minimal.webp" alt="Minimal watch face showing large numerals." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Minimal</h3><p>Nothing but time and date.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-05-typo.webp" alt="Typo watch face with oversized numerals." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Typo</h3><p>Big type with bold accent colors.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-06-painter.webp" alt="Painter watch face with an illustrated figure." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Painter</h3><p>A lifelike figure erased and redrawn minute by minute.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-07-rings.webp" alt="Activity Rings watch face with concentric progress rings." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Activity Rings</h3><p>Second, minute, hour, day, and year progress rings.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-08-fresh.webp" alt="Fresh Analog watch face with a lighter dial." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Fresh Analog</h3><p>A lighter dial with softer colors.</p>
-        </article>
-        <article>
-          <img class="face-shot" src="/assets/screenshots/face-09-manga.webp" alt="Manga watch face with illustrated graphic elements." width="720" height="680" loading="lazy" decoding="async" />
-          <h3>Manga</h3><p>An expressive illustrated face for lighter moments.</p>
-        </article>
+      <div class="shell face-gallery">
+        <article><figure><img src="/assets/screenshots/face-01-analog.webp" alt="Complete Analog watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Analog</h3><p>High-contrast hands and ticks.</p></article>
+        <article><figure><img src="/assets/screenshots/face-02-modular.webp" alt="Complete Modular watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Modular</h3><p>Time and complications in fixed zones.</p></article>
+        <article><figure><img src="/assets/screenshots/face-03-california.webp" alt="Complete California watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>California</h3><p>Hybrid numerals with a vintage rhythm.</p></article>
+        <article><figure><img src="/assets/screenshots/face-04-minimal.webp" alt="Complete Minimal watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Minimal</h3><p>Only time and date.</p></article>
+        <article><figure><img src="/assets/screenshots/face-05-typo.webp" alt="Complete Typo watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Typo</h3><p>Oversized, expressive numerals.</p></article>
+        <article><figure><img src="/assets/screenshots/face-06-painter.webp" alt="Complete Painter watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Painter</h3><p>An illustrated figure redrawn over time.</p></article>
+        <article><figure><img src="/assets/screenshots/face-07-rings.webp" alt="Complete Activity Rings watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Activity Rings</h3><p>Five progress rings at a glance.</p></article>
+        <article><figure><img src="/assets/screenshots/face-08-fresh.webp" alt="Complete Fresh Analog watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Fresh Analog</h3><p>A lighter, softer dial.</p></article>
+        <article><figure><img src="/assets/screenshots/face-09-manga.webp" alt="Complete Manga watch face capture." width="1200" height="750" loading="lazy" decoding="async" /></figure><h3>Manga</h3><p>Illustrated energy for lighter moments.</p></article>
       </div>
     </section>
 
     <section class="section music-section" id="music" aria-labelledby="music-title">
-      <div class="shell section-head">
-        <p class="eyebrow">Music Hub</p>
-        <h2 id="music-title">A player shrunk to wrist size</h2>
-        <p>The music hub is built around your queue and what's playing — not a shrunken web page. Platform capabilities roll out as licensing and APIs allow.</p>
-      </div>
-      <div class="shell music-panel">
-        <article class="music-hero">
-          <span class="cover"></span>
-          <div>
-            <p class="eyebrow">Now Playing</p>
-            <h3>Queue, cover art, and volume on one level</h3>
-            <p>Play, pause, previous, next, and volume are all reachable through the Crown and side button without interrupting your desktop task.</p>
+      <div class="shell split-section reversed">
+        <figure class="capture-frame split-capture">
+          <img src="/assets/screenshots/app-music.webp" alt="Complete Music mini app capture showing the current track and playback controls." width="1440" height="900" loading="lazy" decoding="async" />
+          <figcaption>Local playback, queue, and controls in the native Music app.</figcaption>
+        </figure>
+        <div class="section-copy">
+          <p class="eyebrow">Music hub</p>
+          <h2 id="music-title">Playback that fits the wrist</h2>
+          <p>The music hub is organized around the queue and the current track. Controls use the same Crown and side-button language as the rest of the watch.</p>
+          <div class="status-grid">
+            <article><h3>Local Music</h3><span>Available</span><p>Files, folders, queues, and playback memory.</p></article>
+            <article><h3>NetEase Cloud Music</h3><span>Build-dependent</span><p>QR login, playlists, and daily mixes.</p></article>
+            <article><h3>System Output</h3><span>Native</span><p>AVPlayer playback and system volume.</p></article>
+            <article><h3>More Platforms</h3><span>Planned</span><p>Evaluated as licensing and APIs allow.</p></article>
           </div>
-          <span class="eq"><i></i><i></i><i></i><i></i></span>
-        </article>
-        <div class="platform-grid">
-          <article class="ready"><header><h3>Local Music</h3><span>Available</span></header><p>File and folder playback, queue looping, fast browsing.</p></article>
-          <article class="ready"><header><h3>NetEase Cloud Music</h3><span>Build-dependent</span></header><p>QR login, playlists, daily mixes, and cover art.</p></article>
-          <article><header><h3>More Platforms</h3><span>Planned</span></header><p>QQ Music, Spotify, and others are evaluated as licensing and API stability allow.</p></article>
-          <article><header><h3>System Output</h3><span>Native</span></header><p>AVPlayer playback, system volume, and Crown-driven HUD.</p></article>
         </div>
       </div>
       <p class="legal shell">Third-party names and trademarks belong to their respective owners. Platform features are used only within the permissions you grant.</p>
@@ -263,71 +177,46 @@
 
     <section class="section plugins-section" id="plugins" aria-labelledby="plugins-title">
       <div class="shell section-head">
-        <p class="eyebrow">Plugin Studio</p>
-        <h2 id="plugins-title">Customize what your watch shows</h2>
-        <p>A plugin is one JSON manifest: choose the page layout, bind live data to components, set colors and actions, then import it. No Xcode, no browser shell, no waiting for us to build your idea.</p>
+        <p class="eyebrow">Plugin studio</p>
+        <h2 id="plugins-title">A plugin system you can actually shape</h2>
+        <p>Choose a layout, bind data, arrange components, and set style and actions. Import the manifest, and it runs as its own mini app.</p>
       </div>
-
-      <div class="shell plugins-panel plugin-studio">
-        <article class="plugin-brief">
+      <div class="shell plugin-bento">
+        <article class="plugin-large">
+          <figure class="capture-frame">
+            <img src="/assets/screenshots/plugin-layouts-1080.webp" alt="Complete plugin layout tester capture with five page templates." width="1440" height="900" loading="lazy" decoding="async" />
+            <figcaption>Five layout templates — hero, heroFull, fit, list, and pinned.</figcaption>
+          </figure>
+        </article>
+        <article class="plugin-builder-card">
+          <p class="eyebrow">Manifest</p>
           <h3>Four decisions make a plugin</h3>
-          <ol class="plugin-decisions">
-            <li><strong>Layout</strong><span>hero, fit, list, pinned, or full-screen hero</span></li>
-            <li><strong>Content</strong><span>metrics, text, progress, lists, QR codes, images</span></li>
-            <li><strong>Data</strong><span>HTTPS + JSONPath, local state, or Now Playing</span></li>
-            <li><strong>Style</strong><span>colors, gradients, settings, refresh and open actions</span></li>
+          <ol>
+            <li><strong>Layout</strong><span>hero · fit · list · pinned · heroFull</span></li>
+            <li><strong>Content</strong><span>metrics · text · lists · rings · QR · images</span></li>
+            <li><strong>Data</strong><span>HTTPS + JSONPath · local state · Now Playing</span></li>
+            <li><strong>Style</strong><span>colors · gradients · settings · refresh · open</span></li>
           </ol>
-          <div class="plugin-manifest" aria-hidden="true">
+          <div class="plugin-code" aria-hidden="true">
             <span>{ "layout": "pinned" }</span>
             <span>{ "bind": "subscriberCount" }</span>
             <span>{ "colors": ["#FF4E45", "#8F140E"] }</span>
           </div>
           <a class="button download" href="/plugins/#generator">Open plugin builder</a>
         </article>
-
-        <div class="plugin-preview-grid" aria-label="Plugin examples">
-          <article class="plugin-preview youtube">
-            <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7.5v9l7.5-4.5z"/><rect x="2.5" y="5" width="19" height="14" rx="4"/></svg><span>YouTube</span></div>
-            <strong>1.24M</strong><small>subscribers</small>
-            <span class="preview-action">Auto refresh</span>
-          </article>
-          <article class="plugin-preview bilibili">
-            <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l2.4 2.5h5.2L17 4M6.5 8h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"/><path d="M10.5 12v3M13.5 12v3"/></svg><span>Bilibili</span></div>
-            <strong>86.4K</strong><small>followers</small>
-            <span class="preview-action">UID in settings</span>
-          </article>
-          <article class="plugin-preview exchange">
-            <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg><span>Exchange</span></div>
-            <strong>7.23</strong><small>USD → CNY</small>
-            <span class="preview-action">JSONPath</span>
-          </article>
-          <a class="demo-more" href="/plugins/#examples"><span>See 9 importable examples</span><svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
-        </div>
-      </div>
-
-      <div class="shell plugin-proof-grid" aria-label="Real plugin captures">
-        <article>
-          <img src="/assets/screenshots/plugin-layouts-1080.webp" alt="Plugin layout tester showing five page templates on the watch." width="1080" height="1020" loading="lazy" decoding="async" />
-          <div><span>Layout</span><h3>Five page skeletons</h3><p>Switch the same plugin between scrolling, fitted, list, pinned, and full-screen layouts.</p></div>
+        <article class="plugin-example">
+          <figure class="capture-frame"><img src="/assets/screenshots/plugin-exchange-1080.webp" alt="Complete Exchange Rates plugin capture showing a live currency value and settings." width="1440" height="900" loading="lazy" decoding="async" /></figure>
+          <h3>Exchange Rates</h3><p>HTTPS request, JSONPath extraction, settings, and a live metric.</p>
         </article>
-        <article>
-          <img src="/assets/screenshots/plugin-exchange-1080.webp" alt="Exchange Rates plugin showing 7.23 CNY for one US dollar." width="1080" height="1020" loading="lazy" decoding="async" />
-          <div><span>Data</span><h3>HTTPS + JSONPath</h3><p>Fetch an API response, map one field to state, and render it as a metric.</p></div>
+        <article class="plugin-example">
+          <figure class="capture-frame"><img src="/assets/screenshots/plugin-youtube-1080.webp" alt="Complete YouTube Stats plugin capture showing subscriber and video statistics." width="1440" height="900" loading="lazy" decoding="async" /></figure>
+          <h3>YouTube Stats</h3><p>Bind subscriber, view, and video counts to your own layout.</p>
         </article>
-        <article>
-          <img src="/assets/screenshots/plugin-youtube-1080.webp" alt="YouTube Stats plugin showing subscriber and video statistics." width="1080" height="1020" loading="lazy" decoding="async" />
-          <div><span>Content</span><h3>Creator metrics</h3><p>Bind subscriber, view, and video counts to text components in your own layout.</p></div>
+        <article class="plugin-more">
+          <strong>Also importable</strong>
+          <p>Bilibili Followers needs no API key: change the UP UID, fetch <code>relation/stat</code>, show the follower count, and open the space page.</p>
+          <a class="text-link" href="/plugins/#examples">See all 9 examples<svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
         </article>
-      </div>
-
-      <div class="shell plugins-panel">
-        <div class="layout-grid" role="list" aria-label="Layout templates">
-          <article role="listitem"><span class="layout-tag">hero</span><h3>Scrolling flow</h3><p>Header, hero, settings, and bottom scroll as one page.</p></article>
-          <article role="listitem"><span class="layout-tag">heroFull</span><h3>First screen pinned</h3><p>Immersive hero on screen one, settings start on screen two.</p></article>
-          <article role="listitem"><span class="layout-tag">fit</span><h3>One-screen adaptive</h3><p>Center never scrolls — text auto-shrinks, rings and QR fill.</p></article>
-          <article role="listitem"><span class="layout-tag">list</span><h3>Fixed header list</h3><p>Long feeds with buttons flowing at the content tail.</p></article>
-          <article role="listitem"><span class="layout-tag">pinned</span><h3>Bottom bar pinned</h3><p>Primary actions never scroll away — always one tap away.</p></article>
-        </div>
       </div>
     </section>
 
